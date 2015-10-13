@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style type="text/css">
+         html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+      </style>
+      <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+      <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcsuRigQSeSnZxzfSAqIpNteb49_zyKw4">
+    </script>
+      <script type="text/javascript">
+         function initialize(){Parse.initialize("UpVefXE68r0yQSRQIJTALABHrleMjQcdtdzWMksV","Eo0aSZtF5qMIjPsMXyxEAfOJY8IzW9TMm9yzetqd");var e=Parse.Object.extend("User"),t=new Parse.Query(e);t.equalTo("emailVerified",true),t.find({success:function(e){for(var t=0;t<e.length;t++){var a=new google.maps.LatLng(e[t].attributes.location._latitude-.5,e[t].attributes.location._longitude-.5);new google.maps.Marker({position:a,map:i,title:e[t].attributes.username})}},error:function(){}});var a=new google.maps.LatLng(37.09024,-95.712891),n={zoom:4,center:a},i=new google.maps.Map(document.getElementById("map-canvas"),n)}google.maps.event.addDomListener(window,"load",initialize);
+      </script>
+   </head>
+   <body>
+      <div id="map-canvas"></div>
+   </body>
+</html>
